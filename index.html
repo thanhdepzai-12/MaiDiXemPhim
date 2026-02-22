@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lì Xì May Mắn</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<section class="lixi-section">
+  <h2>🧧 Chọn Phim Đi</h2>
+  <p>Choose one red envelope to reveal your fortune!</p>
+ <!-- COUNTDOWN -->
+  <div class="countdown-section">
+  
+    <div class="countdown-box">
+      <div class="time-box">
+        <div class="time-number" id="hours">00</div>
+        <div class="time-label">GIỜ</div>
+      </div>
+      <div class="time-box">
+        <div class="time-number" id="minutes">00</div>
+        <div class="time-label">PHÚT</div>
+      </div>
+      <div class="time-box">
+        <div class="time-number" id="seconds">00</div>
+        <div class="time-label">GIÂY</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="envelope-container">
+    <div class="envelope"></div>
+    <div class="envelope"></div>
+    <div class="envelope"></div>
+    <div class="envelope"></div>
+    <div class="envelope"></div>
+  </div>
+</section>
+
+<!-- OVERLAY -->
+<div id="lixiOverlay" class="lixi-overlay">
+  <div class="lixi-popup">
+    <button class="close-btn">✖</button>
+    <div class="fortune-image">
+      <img id="fortuneImg" src="" alt="fortune">
+    </div>
+  </div>
+</div>
+
+<script >
+document.addEventListener("DOMContentLoaded", () => {
+
+  const envelopes = document.querySelectorAll(".envelope");
+  const overlay = document.getElementById("lixiOverlay");
+  const fortuneImg = document.getElementById("fortuneImg");
+  const closeBtn = document.querySelector(".close-btn");
+
+  let hasOpened = false;
+
+  const fortunes = [
+    {
+      id: 1,
+      rate: 0.4,
+      img: "images/BauVat.jpg"
+    },
+    {
+      id: 2,
+      rate: 0.3,
+      img: "images/MuiPho.jpg"
+    },
+    {
+      id: 3,
+      rate: 0.3,
+      img: "images/NhaBaToi.webp"
+    },
+    {
+      id: 4,
+      rate: 99,
+      img: "images/ThoOi.webp"
+    }
+  ];
+
+  function getRandomFortune() {
+    const total = fortunes.reduce((sum, f) => sum + f.rate, 0);
+    let random = Math.random() * total;
+
+    for (let fortune of fortunes) {
+      if (random < fortune.rate) {
+        return fortune;
+      }
+      random -= fortune.rate;
+    }
+  }
+
+  function openEnvelope() {
+
+
+
+    const fortune = getRandomFortune();
+
+    fortuneImg.src = fortune.img;
+
+
+    overlay.classList.add("show");
+    hasOpened = true;
+  }
+
+  function closeOverlay(e) {
+    if (e.target === overlay || e.target === closeBtn) {
+      overlay.classList.remove("show");
+    }
+  }
+
+  envelopes.forEach(env => {
+    env.addEventListener("click", openEnvelope);
+  });
+
+  overlay.addEventListener("click", closeOverlay);
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
+
+
+  
+
+  function getEndOfDay() {
+    const now = new Date();
+    return new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      23, 59, 59
+    );
+  }
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = getEndOfDay() - now;
+
+    if (diff <= 0) {
+      hoursEl.textContent = "00";
+      minutesEl.textContent = "00";
+      secondsEl.textContent = "00";
+      return true;
+    }
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    hoursEl.textContent = String(hours).padStart(2, "0");
+    minutesEl.textContent = String(minutes).padStart(2, "0");
+    secondsEl.textContent = String(seconds).padStart(2, "0");
+
+    return false;
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  envelopes.forEach(env => {
+    env.addEventListener("click", () => {
+      if (updateCountdown()) return;
+      const fortune = getRandomFortune();
+      fortuneImg.src = fortune.img;
+      overlay.classList.add("show");
+    });
+  });
+
+  overlay.addEventListener("click", () => {
+    overlay.classList.remove("show");
+  });
+
+});
+</script>
+</body>
+</html>

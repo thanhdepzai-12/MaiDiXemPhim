@@ -1,0 +1,782 @@
+/* =====================
+   RESET & VARIABLES
+===================== */
+@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Oswald:wght@200..700&display=swap');
+
+
+#fortuneTitle {
+  font-family: "Protest Revolution", sans-serif;
+ font-weight: bold;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #8b0000, #b22222, #ff0000);
+  min-height: 100vh;
+  color: white;
+  text-align: center;
+}
+
+/* =========================
+   COUNTDOWN SECTION
+========================= */
+
+.countdown-section {
+  margin-top: 40px;
+  padding: 25px;
+}
+
+.countdown-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px gold;
+}
+
+.countdown-box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.time-box {
+  background: linear-gradient(145deg, #ffffff, #ffe6e6);
+  color: #b22222;
+  padding: 20px 25px;
+  border-radius: 18px;
+  min-width: 90px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  animation: glow 2s infinite alternate;
+}
+
+.time-number {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.time-label {
+  font-size: 14px;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+
+/* Glow animation */
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 15px gold;
+  }
+  to {
+    box-shadow: 0 0 30px orange;
+  }
+}
+
+/* =========================
+   ENVELOPES
+========================= */
+
+.lixi-section {
+  padding: 40px 20px;
+}
+
+.envelope-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+
+
+
+/* =========================
+   OVERLAY
+========================= */
+
+.lixi-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.lixi-overlay.show {
+  display: flex;
+}
+
+.lixi-popup {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  width: 320px;
+  max-width: 90%;
+}
+
+.fortune-image img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+
+
+
+
+:root {
+  --green-dark: #2f5d46;
+  --green-main: #3b6b4c;
+  --green-soft: #e3efe8;
+  --beige-bg: #f5f2ed;
+  --paper: #fcfbf8;
+  --text-main: #2f3e34;
+  --text-sub: #6b7d6f;
+  --shadow-soft: 0 10px 25px rgba(0,0,0,0.08);
+  --shadow-hover: 0 25px 45px rgba(0,0,0,0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  font-family: "Inter", "Arial", sans-serif;
+  background: var(--beige-bg);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* =====================
+   HERO
+===================== */
+.hero {
+  background: linear-gradient(
+    180deg,
+    var(--green-soft),
+    var(--beige-bg)
+  );
+  text-align: center;
+  padding: 90px 20px 70px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--green-dark);
+}
+
+.hero p {
+  max-width: 520px;
+  margin: 16px auto 0;
+  font-size: 18px;
+  color: var(--text-sub);
+}
+.btn-close {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.btn-close:hover {
+  background-color: #1b5e20;
+}
+
+/* =====================
+   GALLERY
+===================== */
+.gallery {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.card {
+  background: var(--paper);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.card h3 {
+  padding: 22px 22px 8px;
+  font-size: 20px;
+  color: var(--green-main);
+}
+
+.card p {
+  padding: 0 22px 26px;
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+/* =====================
+   WHY RECYCLE
+===================== */
+.why-recycle {
+  background: var(--paper);
+  padding: 90px 20px;
+  font-size: 50px;
+}
+
+.why-recycle h2 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 50px;
+  color: var(--green-dark);
+}
+
+.reasons {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.reason {
+  background: var(--beige-bg);
+  padding: 35px 28px;
+  border-radius: 20px;
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.reason:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-soft);
+}
+
+.reason h4 {
+  margin: 14px 0 8px;
+  font-size: 30px;
+  color: var(--green-main);
+}
+
+.reason p {
+  font-size: 18px;
+  color: var(--text-sub);
+}
+
+/* =====================
+   MODAL
+===================== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.634);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  gap: 40px;
+  padding: 20px;
+}
+
+.modal-content {
+  background: var(--paper);
+  max-height: 715px;
+  padding: 40px;
+  width: 90%;
+  max-width: 620px;
+  border-radius: 26px;
+  box-shadow: var(--shadow-hover);
+  animation: zoomFade 0.5s ease;
+}
+.modal-video {
+  position: relative;
+ max-width: clamp(250px, 35vw, 320px);
+    border-radius: 26px;
+    overflow: hidden;
+    aspect-ratio: 9/16;
+
+}
+.modal-content h2 {
+  color: var(--green-dark);
+  margin-bottom: 12px;
+}
+
+.modal-content h3 {
+  margin-top: 20px;
+  color: var(--green-main);
+}
+
+.modal-content ul {
+  padding-left: 18px;
+  margin: 12px 0;
+}
+
+.modal-content img {
+  width: 100%;
+  border-radius: 16px;
+  margin-top: 18px;
+  aspect-ratio: 1/1;
+}
+
+.close {
+  position: absolute;
+  right: 26px;
+  top: 22px;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--text-sub);
+}
+video {
+    object-fit: cover;
+}
+/* =====================
+   ANIMATIONS
+===================== */
+.fade-in {
+  animation: fade 1.2s ease both;
+}
+
+.slide-up {
+  animation: slideUp 0.9s ease both;
+}
+/* =====================
+   FOOTER – SHELF RECYCLE
+   Đồng bộ màu eco – paper
+===================== */
+footer {
+  background: linear-gradient(
+    135deg,
+    var(--green-dark),
+    var(--green-main)
+  );
+  color: var(--paper);
+  padding: 50px 20px 40px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.footer-content p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: var(--paper);
+}
+
+.footer-content strong {
+  display: inline-block;
+  font-size: 18px;
+  letter-spacing: 0.6px;
+  color: #ffffff;
+}
+
+.footer-year {
+  margin-top: 20px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* Hover nhẹ – đúng tinh thần eco */
+footer:hover {
+  background: linear-gradient(
+    135deg,
+    var(--green-main),
+    var(--green-dark)
+  );
+  transition: background 0.4s ease;
+}
+
+/* =====================
+   📱 MOBILE RESPONSIVE
+===================== */
+
+.container-img {
+    width: 100%;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.img-detail {
+  width: clamp(100px, 15vw, 160px) !important;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid var(--green-dark);
+}
+.footer-content a {
+  color: #e3efe8; /* xanh nhạt eco */
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-content a:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+/* =====================
+   📱 TABLET RESPONSIVE
+===================== */
+@media (max-width: 600px) {
+  .modal {
+    padding: 16px;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 0;
+  }
+  .btn-close {
+    margin-top: 20px;
+    padding: 15px 0;
+    font-size: 15px;
+    margin-left: 5px;
+    width: 100%;
+  }
+  .modal-video {     
+    display: block;
+    margin-right: 40px;
+  }
+
+  .modal-content {
+    max-height: 80vh;
+    padding: 20px;
+  }
+
+  footer {
+    padding: 36px 15px 30px;
+  }
+
+  .footer-content strong {
+    font-size: 16px;
+  }
+
+  .footer-content p {
+    font-size: 14px;
+  }
+
+  .footer-year {
+    font-size: 12px;
+  }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .modal {
+    padding: 30px;
+    gap: 30px;
+  }
+ 
+  footer {
+    padding: 44px 20px 36px;
+  }
+
+  .footer-content p {
+    font-size: 14.5px;
+  }
+}
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomFade {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 70px 20px 50px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .why-recycle h2 {
+    font-size: 28px;
+  }
+}
+/* ===== LIXI SECTION ===== */
+/* =========================================
+   LIXI SECTION - NEW YEAR 2026 DESIGN
+   Tone: Deep Red & Gold Luxury
+   ========================================= */
+
+.lixi-section {
+    text-align: center;
+    padding: 80px 20px;
+    /* Sử dụng dải màu đỏ đậm chiều sâu */
+    background: radial-gradient(circle, #cc0000 0%, #800000 100%);
+  
+    color: #fff;
+    border-top: 5px solid #ffd700; /* Viền gold trên cùng */
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.3);
+}
+
+.envelope-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.envelope {
+  width: clamp(140px, 15vw, 400px);
+  aspect-ratio: 2 / 4;
+  height: auto;
+
+  background: url("images/envelope.png") center/cover no-repeat;
+  cursor: pointer;
+  border-radius: 8px;
+
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  /* Idle animation nhẹ */
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Hover nổi lên */
+.envelope:hover {
+  transform: translateY(-18px) rotate(3deg) scale(1.05);
+  box-shadow: 0 25px 50px rgba(255, 215, 0, 0.3);
+  border: 1px solid #ffd700;
+}
+
+/* Click rung mạnh hơn */
+.envelope:active {
+  animation: clickShake 0.4s ease;
+}
+
+/* ===== FLOAT (nhẹ, sang) ===== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ===== SHAKE KHI CLICK ===== */
+@keyframes clickShake {
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-3px); }
+}
+
+
+/* =====================
+   LIXI OVERLAY & POPUP
+   ===================== */
+.lixi-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lixi-overlay.show {
+  display: flex;
+}
+
+/* POPUP dùng background */
+.lixi-popup {
+  width: clamp(320px, 70vw, 380px);
+  aspect-ratio: 2 / 4;
+
+  background: url("images/inner.png") center/cover no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Nội dung fortune */
+.fortune-content {
+ color: #92191b;
+background: url(images/light.png) center/cover;
+aspect-ratio: 1/1;
+text-align: center;
+}
+
+#fortuneTitle {
+font-size: clamp(42px, 2.5vw, 42px);
+  margin-bottom: 8px;
+text-shadow: 0px 0px 8px rgb(255 255 255);
+ color: #92191b;
+}
+
+#fortuneMessage {
+  font-size: clamp(22px, 2vw, 22px);
+  color: #92191b;
+  font-weight: bold;
+}
+.fortune-message-en {
+  font-style: italic;
+  font-size: clamp(22px, 2vw, 22px);
+  color: #92191b;
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0.95;
+
+  /* Thiết lập kiểu ngoặc */
+  quotes: "“" "”";
+}
+
+.fortune-message-en::before {
+  content: open-quote;
+}
+
+.fortune-message-en::after {
+  content: close-quote;
+}
+/* Nút đóng */
+.close-btn {
+  position: absolute;
+  bottom: 15px;
+  padding: 6px 14px;
+  border: none;
+  background: crimson;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.inner-img {
+    width: 320px;
+    max-width: 85vw;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+}
+
+.popup-fortune {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Font chữ nghệ thuật cho câu chúc */
+    color: #ffd700;
+    font-size: 24px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.6);
+    width: 70%;
+    line-height: 1.4;
+    font-family: "serif"; /* Hoặc font thư pháp nếu có */
+}
+
+.close-btn {
+    margin-top: 30px;
+    padding: 12px 30px;
+    border: none;
+    background: linear-gradient(135deg, #ffd700, #b8860b);
+    color: #800000;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #fff, #ffd700);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+}
+.fortune-image img {
+ width: 400px;
+ object-fit: cover;
+ object-position: center;
+  aspect-ratio: 2/3;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+
+ .lixi-popup {
+       width:clamp(520px, 80vw, 320px) !important;
+  }
+
+#fortuneTitle {
+font-size: clamp(60px, 2.5vw, 42px);
+  margin-bottom: 8px;
+text-shadow: 0px 0px 8px rgb(255 255 255);
+ color: #92191b;
+}
+
+#fortuneMessage {
+  font-size: clamp(30px, 2vw, 22px);
+  color: #92191b;
+  font-weight: bold;
+}
+.fortune-message-en {
+  font-style: italic;
+  font-size: clamp(22px, 2vw, 22px);
+  color: #92191b;
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0.95;
+
+  /* Thiết lập kiểu ngoặc */
+  quotes: "“" "”";
+}
+    .lixi-section {
+        padding: 50px 15px;
+    }
+}
